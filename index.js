@@ -54,7 +54,7 @@ function sendTextMessage(sender, text) {
 	    method: 'POST',
 		json: {
 		    recipient: {id:sender},
-			message: messageData,
+				message: messageData,
 		}
 	}, function(error, response, body) {
 		if (error) {
