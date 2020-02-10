@@ -56,7 +56,7 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200)
 })
 
-const token = "EAADVD6TjNt0BAM98ZBIsimZArfIsWVHa6CRqbG86WQyPeo9UwkaHKLfirEz0YZCM5MVZB9ZAQ0bw7E0VulkYBZCvnCUCtIsQ4Q9RWCZBGq5cGKI92EWobqvL8Nh2Dtl5PnpWHTWOLnZCRLOLF9BwGJU6mmSIYuIS5kZBkDME2IYuZBZAsFIoVLcUx9lZBD90rZBMrwg8ZD"
+const token = "EAADVD6TjNt0BAOxVGpJ8GruL47lyYPeIMPNwFo1gD2cUbhnjH2M2nZCUlkdgeBCZCHfbzhfZAc1dYC5Pco0tmmJKgJPBJAHzZC1EefCuawwHcmcZCpXHMMJn9dkjviKZC4C16uNaZBbwhFAPsrG3t0fLeeWQXqpDbhMBhfCOYtkSBA2UURFOV6AvolSY69q7dwZD"
 /* Send Text Message method
  * Use of v6.0 updated facebook graph API
  * access_token is configured through heroku server
