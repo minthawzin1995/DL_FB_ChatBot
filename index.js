@@ -53,7 +53,7 @@ app.post('/webhook/', function (req, res) {
 		    let text = event.message.text
 
 		    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
-
+				/*
 				// Small Talk ChatBot
 				let apiai = apiaiApp.textRequest(text, {
 					sessionId: 'chatbot'
@@ -79,6 +79,7 @@ app.post('/webhook/', function (req, res) {
 						 });
 					});
 				});
+				*/
 	    }
     }
     res.sendStatus(200)
