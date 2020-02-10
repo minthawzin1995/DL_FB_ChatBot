@@ -44,70 +44,43 @@ app.listen(app.get('port'), function() {
  * reply back the same message with the Text received echo:
  * send server 200 code if passed
 */
-app.post('/webhook/', function (req, res) {
-    let messaging_events = req.body.entry[0].messaging
-    for (let i = 0; i < messaging_events.length; i++) {
-	    let event = req.body.entry[0].messaging[i]
-	    let sender = event.sender.id
-	    if (event.message && event.message.text) {
-		    let text = event.message.text
-
-		    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
-
-				// Small Talk ChatBot
-				let apiai = apiaiApp.textRequest(text, {
-					sessionId: 'chatbot'
-				});
-
-				apiai.on('response', (response) => {
-					let aiText = response.result.fulfillment.speech;
-
-					request({
-						 url: 'https://graph.facebook.com/v2.6/me/messages',
-						 qs: {access_token: token},
-						 method: 'POST',
-						 json: {
-							 recipient: {id: sender},
-							 message: {text: aiText}
-						 }
-					 }, (error, response) => {
-						 if (error) {
-								 console.log('Error sending message: ', error);
-						 } else if (response.body.error) {
-								 console.log('Error: ', response.body.error);
-						 }
-					 });
-				});
-				apiai.on('error', (error) => {
-					console.log(error);
-				});
-
-				apiai.end();
-	    }
-    }
-    res.sendStatus(200)
-})
+/* Handling all messenges */
+app.post('/webhook', (req, res) => {
+  console.log(req.body);
+  if (req.body.object === 'page') {
+    req.body.entry.forEach((entry) => {
+      entry.messaging.forEach((event) => {
+        if (event.message && event.message.text) {
+          sendMessage(event);
+        }
+      });
+    });
+    res.status(200).end();
+  }
+});
 
 /* Send Text Message method
  * Use of v6.0 updated facebook graph API
  * access_token is configured through heroku server
  * heroku config: set FB_PAGE_ACCESS_TOKEN = <>
 */
-function sendTextMessage(sender, text) {
-    let messageData = { text:text }
-    request({
-	    url: 'https://graph.facebook.com/v2.6/me/messages',
-	    qs: {access_token:token},
-	    method: 'POST',
-		json: {
-		    recipient: {id:sender},
-				message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-		    console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-		    console.log('Error: ', response.body.error)
-	    }
-    })
-	}
+function sendMessage(event) {
+  let sender = event.sender.id;
+  let text = event.message.text;
+
+  request({
+    url: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: {access_token:token},
+    method: 'POST',
+    json: {
+      recipient: {id: sender},
+      message: {text: text}
+    }
+  }, function (error, response) {
+    if (error) {
+        console.log('Error sending message: ', error);
+    } else if (response.body.error) {
+        console.log('Error: ', response.body.error);
+    }
+  });
+}
