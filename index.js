@@ -78,3 +78,4 @@ function sendTextMessage(sender, text) {
 		    console.log('Error: ', response.body.error)
 	    }
     })
+	}
