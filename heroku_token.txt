@@ -6,6 +6,4 @@ Scope:       global
 Token:       745958d7-4c72-4a4f-a2f4-bdde657895f9
 Updated at:  Sat Feb 08 2020 09:35:32 GMT+0630 (Myanmar Time) (less than a minute ago)
 
-PAGE ACCESS FB - EAAIZBvwB35ZCcBAIYKZCeTafu0MfXGCWKtZBxfnsTHrhHgPvmRgojfoSfcXqmJMKpWKzJ8sS5rtipMw7z0ylDURmkOBDs4P4MyTzynapjrXCEmLt8AtBlBJU7nseWyLbTTqel0V6T7Y0dTWTD7IIYCUhEplLhaWZBbkXSpHDqGkAfLU42QrljrMFH0LSbYCgZD
-
 App Token - 631940020955127|DQlBGVGf8DxijbJ1A9g2COPAvtc
