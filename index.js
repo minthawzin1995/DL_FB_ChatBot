@@ -5,8 +5,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
+const token = process.env.FB_PAGE_ACCESS_TOKEN
 
-// setting the port to the environment or 5000
+// setting the port to the heroku environment or 5000
 app.set('port', (process.env.PORT || 5000))
 
 // Process application/x-www-form-urlencoded
@@ -63,7 +64,7 @@ app.post('/webhook/', function (req, res) {
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
     request({
-	    url: 'https://graph.facebook.com/v2.6/me/messages',
+	    url: 'https://graph.facebook.com/v6.0/me/messages',
 	    qs: {access_token:token},
 	    method: 'POST',
 		json: {
