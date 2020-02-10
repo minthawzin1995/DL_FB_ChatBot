@@ -59,7 +59,7 @@ app.post('/webhook/', function (req, res) {
 
 // recommended to inject access tokens as environmental variables, e.g.
 // const token = process.env.FB_PAGE_ACCESS_TOKEN
-const token = "EAADVD6TjNt0BAJ8EL5NmsnRdQkjPRPH7QosZAJrIdPWtA479m7Hm047j3Xe5StvTlAlJLZBrbqx4CR8lI02BUbRMSfeKZBe7LfaZCK8Vbz0YKuKUBIEkPVIiVA1znEpLfX0IMNJwpHbrP7j1hdGaGV6uglCWU05LyCCsSITIHXnyatAN8DGc5FqdBPAMKvkZD"
+const token = "EAADVD6TjNt0BACF3Nh1eokq7RuAeEmfDSZC8oGghaAdFgMR3OK1op2Klsrja6scKB67Gvpn8ZBFOYmDZCpehXONJcZAXcCx6g2hiWETqkQ3Q42RaiwVvmaxHozfaLBpnS5nLY80zrC76Fj7cOnXoRLD3BWJqESByjX50BRTGruQXPqdZCiUKffTgHZB0KZBwYpUvbSlkbssG3LzgxNZCqBT2BW8QYfqupYMZD"
 
 function sendTextMessage(sender, text) {
 	let messageData = { text:text }
@@ -113,7 +113,7 @@ function sendGenericMessage(sender) {
 			}
 		}
 	}
-	
+
 	request({
 		url: 'https://graph.facebook.com/v6.0/me/messages',
 		qs: {access_token:token},
