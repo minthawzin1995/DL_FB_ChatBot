@@ -5,7 +5,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
-const token = process.env.FB_PAGE_ACCESS_TOKEN
+//const token = process.env.FB_PAGE_ACCESS_TOKEN
 
 // setting the port to the heroku environment or 5000
 app.set('port', (process.env.PORT || 5000))
