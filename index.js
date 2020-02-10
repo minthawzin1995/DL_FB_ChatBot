@@ -5,6 +5,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
+const apiaiApp = require('apiai')(process.env.APIAI_CLIENT_ACCESS_TOKEN);
 const token = process.env.FB_PAGE_ACCESS_TOKEN
 
 // setting the port to the heroku environment or 5000
@@ -50,7 +51,36 @@ app.post('/webhook/', function (req, res) {
 	    let sender = event.sender.id
 	    if (event.message && event.message.text) {
 		    let text = event.message.text
-		    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+
+		    // sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+
+				// Small Talk ChatBot
+				let apiai = apiaiApp.textRequest(text, {
+					sessionId: 'chatbot'
+				});
+
+				apiai.on('response', (response) => {
+					let aiText = response.result.fulfillment.speech;
+
+						request({
+							 url: 'https://graph.facebook.com/v6.0/me/messages',
+							 qs: {access_token: PAGE_ACCESS_TOKEN},
+							 method: 'POST',
+							 json: {
+								 recipient: {id: sender},
+								 message: {text: aiText}
+							 }
+						 }, (error, response) => {
+							 if (error) {
+									 console.log('Error sending message: ', error);
+							 } else if (response.body.error) {
+									 console.log('Error: ', response.body.error);
+							 }
+						 });
+					});
+				});
+
+
 	    }
     }
     res.sendStatus(200)
@@ -64,7 +94,7 @@ app.post('/webhook/', function (req, res) {
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
     request({
-	    url: 'https://graph.facebook.com/v2.6/me/messages',
+	    url: 'https://graph.facebook.com/v6.0/me/messages',
 	    qs: {access_token:token},
 	    method: 'POST',
 		json: {
