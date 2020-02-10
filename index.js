@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 
 // Index route sendin the following message
 app.get('/', function (req, res) {
-	res.send('Hello world, I am a chat bot')
+	res.send('Hello world, I am a chat bot hosted at www.m.me/aibotdeeplearning2020')
 })
 
 /* for Facebook verification
@@ -63,6 +63,7 @@ app.post('/webhook', (req, res) => {
  * Use of v6.0 updated facebook graph API
  * access_token is configured through heroku server
  * heroku config: set FB_PAGE_ACCESS_TOKEN = <>
+ * use of small Talk from dialogflow to generate small talk
 */
 function sendMessage(event) {
   let sender = event.sender.id;
