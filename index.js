@@ -53,33 +53,7 @@ app.post('/webhook/', function (req, res) {
 		    let text = event.message.text
 
 		    sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
-				/*
-				// Small Talk ChatBot
-				let apiai = apiaiApp.textRequest(text, {
-					sessionId: 'chatbot'
-				});
 
-				apiai.on('response', (response) => {
-					let aiText = response.result.fulfillment.speech;
-
-						request({
-							 url: 'https://graph.facebook.com/v2.6/me/messages',
-							 qs: {access_token: token},
-							 method: 'POST',
-							 json: {
-								 recipient: {id: sender},
-								 message: {text: aiText}
-							 }
-						 }, (error, response) => {
-							 if (error) {
-									 console.log('Error sending message: ', error);
-							 } else if (response.body.error) {
-									 console.log('Error: ', response.body.error);
-							 }
-						 });
-					});
-				});
-				*/
 	    }
     }
     res.sendStatus(200)
@@ -99,6 +73,35 @@ function sendTextMessage(sender, text) {
 		json: {
 		    recipient: {id:sender},
 			message: messageData,
+		}
+		let apiai = apiaiApp.textRequest(text, {
+			 sessionId: 'tabby_cat' // use any arbitrary id
+		 });
+
+		 apiai.on('response', (response) => {
+			 let aiText = response.result.fulfillment.speech;
+
+    		request({
+			      url: 'https://graph.facebook.com/v2.6/me/messages',
+			      qs: {access_token: PAGE_ACCESS_TOKEN},
+			      method: 'POST',
+			      json: {
+			        recipient: {id: sender},
+			        message: {text: aiText}
+			      }
+			    }, (error, response) => {
+			      if (error) {
+			          console.log('Error sending message: ', error);
+			      } else if (response.body.error) {
+			          console.log('Error: ', response.body.error);
+			      }
+			    });
+			 });
+		 apiai.on('error', (error) => {
+			 console.log(error);
+		 });
+
+		 apiai.end();
 		}
 	}, function(error, response, body) {
 		if (error) {
