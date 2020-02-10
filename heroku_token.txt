@@ -1,4 +1,3 @@
-$ heroku authorizations:create
 Creating OAuth Authorization... done
 Client:      <none>
 ID:          b0a16ade-5cb8-4c58-802f-c5f9c38442be
@@ -10,5 +9,3 @@ Updated at:  Sat Feb 08 2020 09:35:32 GMT+0630 (Myanmar Time) (less than a minut
 PAGE ACCESS FB - EAAIZBvwB35ZCcBAIYKZCeTafu0MfXGCWKtZBxfnsTHrhHgPvmRgojfoSfcXqmJMKpWKzJ8sS5rtipMw7z0ylDURmkOBDs4P4MyTzynapjrXCEmLt8AtBlBJU7nseWyLbTTqel0V6T7Y0dTWTD7IIYCUhEplLhaWZBbkXSpHDqGkAfLU42QrljrMFH0LSbYCgZD
 
 App Token - 631940020955127|DQlBGVGf8DxijbJ1A9g2COPAvtc
-
-curl -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=<EAAIZBvwB35ZCcBAIYKZCeTafu0MfXGCWKtZBxfnsTHrhHgPvmRgojfoSfcXqmJMKpWKzJ8sS5rtipMw7z0ylDURmkOBDs4P4MyTzynapjrXCEmLt8AtBlBJU7nseWyLbTTqel0V6T7Y0dTWTD7IIYCUhEplLhaWZBbkXSpHDqGkAfLU42QrljrMFH0LSbYCgZD>"
