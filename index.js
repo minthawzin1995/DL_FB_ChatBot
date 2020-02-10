@@ -5,7 +5,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
-//const token = process.env.FB_PAGE_ACCESS_TOKEN
+const token = process.env.FB_PAGE_ACCESS_TOKEN
 
 // setting the port to the heroku environment or 5000
 app.set('port', (process.env.PORT || 5000))
@@ -56,7 +56,7 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200)
 })
 
-const token = "EAADVD6TjNt0BAOxVGpJ8GruL47lyYPeIMPNwFo1gD2cUbhnjH2M2nZCUlkdgeBCZCHfbzhfZAc1dYC5Pco0tmmJKgJPBJAHzZC1EefCuawwHcmcZCpXHMMJn9dkjviKZC4C16uNaZBbwhFAPsrG3t0fLeeWQXqpDbhMBhfCOYtkSBA2UURFOV6AvolSY69q7dwZD"
+//const token = "EAADVD6TjNt0BAOxVGpJ8GruL47lyYPeIMPNwFo1gD2cUbhnjH2M2nZCUlkdgeBCZCHfbzhfZAc1dYC5Pco0tmmJKgJPBJAHzZC1EefCuawwHcmcZCpXHMMJn9dkjviKZC4C16uNaZBbwhFAPsrG3t0fLeeWQXqpDbhMBhfCOYtkSBA2UURFOV6AvolSY69q7dwZD"
 /* Send Text Message method
  * Use of v6.0 updated facebook graph API
  * access_token is configured through heroku server
