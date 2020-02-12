@@ -32,6 +32,7 @@ git push heroku master
 
 ### Set up the Chatbot at Facebook
 1. Sign up for an account at https://developers.facebook.com/
+
 2. Create an application and set up Webhook in the created application. Webhook first field should be the URL of the created Heroku server before and the token field should be equal to the arbitrary token string that you have in your code.
 ```
 app.get('/webhook/', function (req, res) {
@@ -42,7 +43,9 @@ app.get('/webhook/', function (req, res) {
 })
 ```
 In this case, the string "token_verification" should be in the token part of the webhook setup.
+
 3. Get the Page access token through the set up for the page that you are creating the chatbot for.
+
 4. Run the following code to save the Page Access Token to the Heroku server Instance for privacy.
 ```
 heroku config:set FB_PAGE_ACCESS_TOKEN=your_page_access_token
