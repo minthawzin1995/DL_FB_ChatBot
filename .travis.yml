@@ -2,6 +2,15 @@ language: node_js
 node_js:
   -  "7"
 
+before_script:
+
+  # install v6.x of nodejs
+   - nvm install 7
+  #install yarn globally
+   - npm install -g yarn
+  # yarn install is like npm install
+   - yarn install
+
 jobs:
   include:
     - stage: npm release
