@@ -6,7 +6,7 @@
   "scripts": {
     "index": "mocha",
     "lint": "node_modules/.bin/goodparts path/to/files/for/linting",
-    "test": "index"
+    "test": "./index.js"
   },
   "author": "",
   "license": "ISC",
