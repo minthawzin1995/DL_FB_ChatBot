@@ -1,11 +1,11 @@
 language: node_js
 node_js:
-  -  "7"
+  -  "12"
 
 before_script:
 
   # install v6.x of nodejs
-   - nvm install 7
+   - nvm install 12
   #install yarn globally
    - npm install -g yarn
   # yarn install is like npm install
@@ -14,7 +14,7 @@ before_script:
 jobs:
   include:
     - stage: npm release
-      node_js: "7"
+      node_js: "12"
       script: echo "Deploying to npm ..."
       deploy:
         provider: npm
