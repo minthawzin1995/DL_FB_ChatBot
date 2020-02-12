@@ -1,6 +1,6 @@
 # Deep Learning Messenger ChatBot
 
-The chatbot can be accessed from www.m.me/aibotdeeplearning2020. It is implemented using Node, Heroku server instance, Diagflow small talk agents and Python ML learning instances. 
+The chatbot can be accessed from www.m.me/aibotdeeplearning2020. It is implemented using Node, Heroku server instance, Dialogflow small talk agents and Python ML learning instances. 
 
 ## Installation
 
@@ -55,3 +55,17 @@ heroku config:set FB_PAGE_ACCESS_TOKEN=your_page_access_token
 const token = process.env.FB_PAGE_ACCESS_TOKEN
 ```
 
+## Connect the ChatBot to the Dialogflow API for Predefined Agents 
+
+### Small Talk Agent API implementation
+1. Create an account at the https://dialogflow.com/ and then create an agent.
+2. Get the agent ClientAccessToken in the settings page of the client.
+3. Add another config instance to the heroku server using the same way as the facebook page access token.
+4. Use predefined agents to simplify the testing process or redefine the way you want the chatbot to reply.
+
+## Travis Integration
+1. Add .travis.yml file to the project folder to allow automated testing using Travis.
+2. Specify the language that is being tested in this case node_js in the file 
+```
+language: node_js
+```
