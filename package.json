@@ -16,7 +16,7 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "goodparts": "^1.2.1"
+    "goodparts": "^1.2.1",
     "eslint": ">=4.18.2"
   }
 }
