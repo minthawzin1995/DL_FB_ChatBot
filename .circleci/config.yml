@@ -20,7 +20,10 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: 'sudo npm install -g npm@latest' 
+          command: 'sudo npm install -g npm@latest'
+          environment:
+            APIAI_CLIENT_ACCESS_TOKEN: 65118608dc924fc89d43f546a7d21bed
+            FB_PAGE_ACCESS_TOKEN: EAADVD6TjNt0BAOxVGpJ8GruL47lyYPeIMPNwFo1gD2cUbhnjH2M2nZCUlkdgeBCZCHfbzhfZAc1dYC5Pco0tmmJKgJPBJAHzZC1EefCuawwHcmcZCpXHMMJn9dkjviKZC4C16uNaZBbwhFAPsrG3t0fLeeWQXqpDbhMBhfCOYtkSBA2UURFOV6AvolSY69q7dwZD
       # Download and cache dependencies
       - restore_cache:
           keys:
