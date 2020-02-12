@@ -6,7 +6,7 @@
   "scripts": {
     "index": "mocha",
     "lint": "node_modules/.bin/goodparts path/to/files/for/linting",
-    "test": "./index.js"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +17,8 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
+    "eslint": ">=4.18.2",
     "goodparts": "^1.2.1",
-    "eslint": ">=4.18.2"
+    "jest": "^25.1.0"
   }
 }

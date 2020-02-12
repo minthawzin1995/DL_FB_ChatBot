@@ -116,3 +116,4 @@ describe('MochaTest', function() {
 		assert.equal(add(x), 2);
 	});
 });
+module.exports = add;
