@@ -20,6 +20,7 @@ app.use(bodyParser.json())
 // Index route sendin the following message
 app.get('/', function (req, res) {
 	res.send('Hello world, I am a chat bot hosted at www.m.me/aibotdeeplearning2020')
+	server.close()
 })
 
 /* for Facebook verification
@@ -30,14 +31,13 @@ app.get('/', function (req, res) {
 app.get('/webhook/', function (req, res) {
 	if (req.query['hub.verify_token'] === 'token_verification') {
 		res.send(req.query['hub.challenge'])
+		server.close()
 	}
 	res.send('Error, wrong token')
 })
 
 // Listening to the server requests at the specified port
-app.listen(app.get('port'), function() {
-	console.log('running on port', app.get('port'))
-})
+var server = app.listen(app.get('port'));
 
 /* Post function on the webhook/
  * get the messages from the other user
@@ -116,4 +116,7 @@ describe('MochaTest', function() {
 		assert.equal(add(x), 2);
 	});
 });
+
+server.close()
+
 module.exports = add;
