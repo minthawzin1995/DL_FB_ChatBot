@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/minthawzin1995/DL_FB_ChatBot.svg?branch=master)](https://travis-ci.org/minthawzin1995/DL_FB_ChatBot)
+[![JavaScript Style Guide: Good Parts](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg?style=flat)](https://github.com/dwyl/goodparts "JavaScript The Good Parts")
 # Deep Learning Messenger ChatBot
 
 The chatbot can be accessed from www.m.me/aibotdeeplearning2020. It is implemented using Node, Heroku server instance, Dialogflow small talk agents and Python ML learning instances. 
