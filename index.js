@@ -1,5 +1,5 @@
 'use strict'
-
+const assert = require("assert");
 // constants used in this project file
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -51,7 +51,7 @@ app.post('/webhook', (req, res) => {
     req.body.entry.forEach((entry) => {
       entry.messaging.forEach((event) => {
         if (event.message && event.message.text) {
-          sendMessage(event);
+          sendMessage(event.sender.id, event.message.text,token);
         }
       });
     });
@@ -65,9 +65,10 @@ app.post('/webhook', (req, res) => {
  * heroku config: set FB_PAGE_ACCESS_TOKEN = <>
  * use of small Talk from dialogflow to generate small talk
 */
-function sendMessage(event) {
-  let sender = event.sender.id;
-  let text = event.message.text;
+function sendMessage(eventSender, eventText,token) {
+  let sender = eventSender;
+  let text = eventText;
+	var success = 0;
 
   let apiai = apiaiApp.textRequest(text, {
     sessionId: 'tabby_cat' // use any arbitrary id
@@ -98,4 +99,20 @@ function sendMessage(event) {
 	 });
 
   apiai.end();
+	success += 1;
+
+	return success;
 }
+
+/* testing function for travis */
+function add(x){
+	return x+1;
+}
+
+/* TRAVIS PASSING */
+describe('MochaTest', function() {
+	let x = 1;
+	it('Should Equal 2', function() {
+		assert.equal(add(x), 2);
+	});
+});
