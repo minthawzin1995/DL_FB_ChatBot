@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "index": "mocha",
-    "lint": "node_modules/.bin/goodparts path/to/files/for/linting"
+    "lint": "node_modules/.bin/goodparts path/to/files/for/linting",
+    "test": "index"
   },
   "author": "",
   "license": "ISC",
