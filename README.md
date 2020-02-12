@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/minthawzin1995/DL_FB_ChatBot.svg?branch=master)](https://travis-ci.org/minthawzin1995/DL_FB_ChatBot)
 # Deep Learning Messenger ChatBot
 
 The chatbot can be accessed from www.m.me/aibotdeeplearning2020. It is implemented using Node, Heroku server instance, Dialogflow small talk agents and Python ML learning instances. 
