@@ -16,9 +16,12 @@ sudo npm install npm -g
 ```
 npm init
 ```
-Install dependices such as express and body-parser.
+Install dependices such as express,yarn and body-parser. 
 ```
 npm install express request body-parser --save
+```
+```
+npm install -g yarn
 ```
 4. Make a Procfile for the Heroku instance
 5. Commit the code and run it on Heroku instance.
